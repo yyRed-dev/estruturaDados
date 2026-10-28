@@ -1,0 +1,5 @@
+2 removes (1 do elemento, 1 da pos)
+
+get = mostrar o elemento da pos X
+
+indenceOf = colocar Pos e mostrar elemento X
