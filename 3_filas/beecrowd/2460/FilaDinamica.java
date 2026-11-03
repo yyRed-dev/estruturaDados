@@ -45,9 +45,9 @@ public class FilaDinamica {
 
     public boolean empty() {
         if (cont != 0) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public int peek() {
@@ -66,16 +66,26 @@ public class FilaDinamica {
         return false;
     }
 
+    public void remove(int elemento) {
+        Node atual = primeiro;
+        while (atual != null) {
+            if (atual.valor == elemento) {
+                
+                return;
+            }
+            atual = atual.prox;
+        }
+    }
+
     @Override
     public String toString() {
         Node atual = primeiro;
-        String resultado = "[ ";
+        String resultado = "";
 
         while (atual != null) {
             resultado += atual.valor + " ";
             atual = atual.prox;
         }
-        resultado += "]";
         return resultado;
     }
 

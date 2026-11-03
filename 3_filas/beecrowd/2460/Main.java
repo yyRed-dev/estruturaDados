@@ -6,23 +6,32 @@ public class Main {
     public static void main (String[] args) throws IOException {
         sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
         FilaDinamica fila = new FilaDinamica();
+        int n = sc.nextInt();
 
-        for (int i=0; i<n; i++) {
-            int id = sc.nextInt();
-            fila.enqueue(id);
-        }
-
-        FilaDinamica aux = new FilaDinamica();
-        int m = sc.nextInt();
-        for (int j=0; j<m; j++) {
-            int extra = sc.nextInt();
-            aux.enqueue(extra);
+        for (int i =0; i<n; i++) {
+            fila.enqueue( sc.nextInt() );
         }
 
         System.out.println(fila);
-        System.out.println(aux);
+
+        int m = sc.nextInt();
+        FilaDinamica deixaram = new FilaDinamica();
+
+        for (int j=0; j<m;j++) {
+            deixaram.enqueue( sc.nextInt() );
+        }
+
+        FilaDinamica filaFinal = new FilaDinamica();
+        while (fila.size() > 0) {
+            int pessoa = fila.peek();
+            fila.dequeue();
+
+            if (!deixaram.search(pessoa)) {
+                filaFinal.enqueue(pessoa);
+            }
+        }
+        System.out.println(filaFinal);
 
     }
 }
